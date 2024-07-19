@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import '../style/Header.css';
 import SearchBar from './bar/SearchBar';
 
-function Header() {
+function Header({updateReserveInformation, updateNumberOfGuests}) {
     return (
         <div className='header'>
             <div>
@@ -24,7 +24,7 @@ function Header() {
                     <Avatar />
                 </div>
             </div>
-            <SearchBar />
+            <SearchBar updateReserveInformation={updateReserveInformation} updateNumberOfGuests={updateNumberOfGuests}/>
         </div>
     )
 }

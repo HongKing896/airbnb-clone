@@ -2,20 +2,24 @@ import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import DatePopover from '../modal/DatePopover/DatePopover';
 import GuestPopover from '../modal/GuestPopover/GeustPopover';
+import CountryPopover from '../modal/PlacePopover/CountryPopover';
 
-const SearchBar = () => {
+const SearchBar = ({ updateReserveInformation, updateNumberOfGuests }) => {
+  const navigate = useNavigate();
   return(
     <StyledSearchBar>
-                <ButtonGroup variant="text" ria-label="Basic button group">
-                  <GuestPopover content='who'></GuestPopover>
-                  <GuestPopover content='check_in'></GuestPopover>
-                  <GuestPopover content='check_out'></GuestPopover>
-                  <GuestPopover content='who'></GuestPopover>
-                  <Button><SearchIcon /></Button>
-                </ButtonGroup>
-            </StyledSearchBar>
+      <ButtonGroup variant="text" ria-label="search bar button group">
+        <CountryPopover content='where' updateReserveInformation={updateReserveInformation} ></CountryPopover>
+        <DatePopover content='checkIn' updateReserveInformation={updateReserveInformation} />
+        <DatePopover content='checkOut' updateReserveInformation={updateReserveInformation} />
+        <GuestPopover content='who' updateNumberOfGuests={updateNumberOfGuests}></GuestPopover>
+      <Button onClick={() => navigate('/search')}><SearchIcon /></Button>
+    </ButtonGroup>
+  </StyledSearchBar>
   )
 }
 export default SearchBar

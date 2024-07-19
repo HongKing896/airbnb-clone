@@ -1,9 +1,28 @@
 import Button from '@mui/material/Button';
+import dayjs from 'dayjs';
 import React from 'react';
 import SearchResult from "../components/SearchResult";
+import dummyData from '../data/hotelData';
 import '../style/SearchPage.css';
 
-function SearchPage() {
+function SearchPage({reserveInformation}) {
+    const { numberOfGuests, checkInDate, checkOutDate, locationCountry } = reserveInformation;
+
+    const checkIn = dayjs(checkInDate);
+    const checkOut = dayjs(checkOutDate);
+    const duration = checkOut.diff(checkIn, 'day');
+
+    const filteredData = dummyData.filter(item => {
+        const totalGuests = numberOfGuests.adults + numberOfGuests.children;
+        const isPetFriendlyRequired = numberOfGuests.pets > 0;
+        return (
+        item.availableGuests >= totalGuests &&
+        item.locationCountry === locationCountry &&
+        //item.isAvailable &&
+        (!isPetFriendlyRequired || item.petFriendly)
+        );
+    });
+    console.log(reserveInformation);
     return (
         <div className='searchPage'>
             <div className='searchPage__info'>
@@ -15,7 +34,25 @@ function SearchPage() {
                 <Button variant="outlined">Rooms and beds</Button>
                 <Button variant="outlined">More filters</Button>
             </div>
-            <SearchResult
+            {filteredData.map((item, index) => (
+                // <Card
+                // key={index}
+                // src={item.imageUrl}
+                // title={item.name}
+                // description={item.description}
+                // price={`$${item.price}`}
+                // />
+                <SearchResult
+                img={item.imageUrl}
+                location={item.locationCountry}
+                title={item.name}
+                description={item.description}
+                star={4.73}
+                price={"£" + item.price + " / night"}
+                total={"£" + item.price*duration + " total"}
+            />
+            ))}
+            {/* <SearchResult
                 img="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_wbPYTxQPMcBh7SPzLFActXnP3uhifeVT_g&usqp=CAU"
                 location="Private room in center of London"
                 title="Stay at this spacious Edwardian House"
@@ -79,7 +116,7 @@ function SearchPage() {
                 star={3.85}
                 price="£90 / night"
                 total="£650 total"
-            />
+            /> */}
         </div>
     )
 }

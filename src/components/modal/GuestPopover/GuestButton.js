@@ -4,14 +4,23 @@ import { IconButton } from "@mui/material";
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const GuestButton = ({guestType})=>{
+const GuestButton = ({ guestType, updateNumberOfGuests })=>{
   const [numberOfGuests,setNumberOfGuests] = useState(0);
 
-  function addNumberOfGuest(){
-    setNumberOfGuests(prevNumberOfGuests => prevNumberOfGuests + 1);
+  function addNumberOfGuest() {
+    setNumberOfGuests(prevNumberOfGuests => {
+      const newNumberOfGuests = prevNumberOfGuests + 1;
+      updateNumberOfGuests(guestType, newNumberOfGuests);
+      return newNumberOfGuests;
+    });
   }
-  function subtractNumberOfGuest(){
-    setNumberOfGuests(prevNumberOfGuests => prevNumberOfGuests - 1);
+  
+  function subtractNumberOfGuest() {
+    setNumberOfGuests(prevNumberOfGuests => {
+      const newNumberOfGuests = prevNumberOfGuests - 1;
+      updateNumberOfGuests(guestType, newNumberOfGuests);
+      return newNumberOfGuests;
+    });
   }
   return (
     <GuestButtonDiv>

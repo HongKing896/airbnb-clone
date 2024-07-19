@@ -1,10 +1,9 @@
 import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import Popover from '@mui/material/Popover';
 import React from 'react';
-import GuestBotton from './GuestButton';
+import DatePicker from './DatePiccker';
 
-function GuestPopover({ content, updateNumberOfGuests }){
+function DatePopover({ content,updateReserveInformation }){
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -16,7 +15,7 @@ function GuestPopover({ content, updateNumberOfGuests }){
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? 'GuestPopover' : undefined;
+  const id = open ? 'DatePopover' : undefined;
 
   return (
     <div>
@@ -30,11 +29,11 @@ function GuestPopover({ content, updateNumberOfGuests }){
         onClose={handleClose}
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'right',
+          horizontal: 'center',
         }}
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'right',
+          horizontal: 'center',
         }}
         slotProps={{
           paper: {
@@ -48,19 +47,9 @@ function GuestPopover({ content, updateNumberOfGuests }){
           },
         }}
       >
-        <ButtonGroup
-          orientation="vertical"
-          aria-label="Vertical button group"
-          variant="text"
-        >
-          <GuestBotton guestType="adults" updateNumberOfGuests={updateNumberOfGuests}></GuestBotton>
-          <GuestBotton guestType="children" updateNumberOfGuests={updateNumberOfGuests}></GuestBotton>
-          <GuestBotton guestType="infants" updateNumberOfGuests={updateNumberOfGuests}></GuestBotton>
-          <GuestBotton guestType="pets" updateNumberOfGuests={updateNumberOfGuests}></GuestBotton>
-        </ButtonGroup>
+      <DatePicker dateType={content} updateReserveInformation={updateReserveInformation} />
       </Popover>
     </div>
   )
 }
-
-export default GuestPopover
+export default DatePopover
