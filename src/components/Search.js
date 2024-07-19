@@ -5,7 +5,7 @@ import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { useNavigate } from "react-router-dom";
-import './Search.css';
+import '../style/Search.css';
 
 // DATE PICKER COMPONENT
 function Search() {

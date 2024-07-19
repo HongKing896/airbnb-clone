@@ -6,7 +6,8 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import React from 'react';
 import { Link } from "react-router-dom";
-import './Header.css';
+import '../style/Header.css';
+import GuestPopover from './modal/GeustPopover';
 
 function Header() {
     return (
@@ -37,7 +38,7 @@ function Header() {
                     </Button>
                     <Button>가는 날</Button>
                     <Button>오는 날</Button>
-                    <Button>여행지 추가</Button>
+                    <GuestPopover content='add_guest'></GuestPopover>
                     <Button><SearchIcon /></Button>
                 </ButtonGroup>
             </div>

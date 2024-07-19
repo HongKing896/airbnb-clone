@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import React from 'react';
-import './SearchPage.css';
-import SearchResult from "./SearchResult";
+import SearchResult from "../components/SearchResult";
+import '../style/SearchPage.css';
 
 function SearchPage() {
     return (

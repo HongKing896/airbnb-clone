@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import './Banner.css';
+import '../style/Banner.css';
 import Search from './Search';
 
 function Banner() {
@@ -17,7 +17,6 @@ function Banner() {
                     {showSearch ? "Hide" : "Search Dates"}
                 </Button>
             </div>
-           
         </div>
     )
 }

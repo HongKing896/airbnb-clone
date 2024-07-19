@@ -1,7 +1,7 @@
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import StarIcon from '@mui/icons-material/Star';
 import React from 'react';
-import './SearchResult.css';
+import '../style/SearchResult.css';
 
 function SearchResult({
     img,

@@ -1,12 +1,13 @@
 import React from 'react';
-import Card from './Card';
-import './Home.css';
+import Banner from '../components/Banner';
+import Card from '../components/Card';
+import '../style/Home.css';
 // ES7 snippets to do 'rfce'
 
 function Home() {
     return (
         <div className='home'>
-            {/* <Banner /> */}
+            <Banner />
             <div className='home__section'>
             <Card
                 src="https://a0.muscache.com/im/pictures/eb9c7c6a-ee33-414a-b1ba-14e8860d59b3.jpg?im_w=720"
