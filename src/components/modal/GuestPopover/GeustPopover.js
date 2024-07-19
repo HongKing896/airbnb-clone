@@ -2,7 +2,7 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Popover from '@mui/material/Popover';
 import React from 'react';
-import GuestBotton from './GuestButton/GuestButton';
+import GuestBotton from './GuestButton';
 function GuestPopover({content}){
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -15,7 +15,7 @@ function GuestPopover({content}){
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+  const id = open ? 'GuestPopover' : undefined;
 
   return (
     <div>

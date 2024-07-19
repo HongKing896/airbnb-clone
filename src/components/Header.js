@@ -1,13 +1,10 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LanguageIcon from '@mui/icons-material/Language';
-import SearchIcon from '@mui/icons-material/Search';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import React from 'react';
 import { Link } from "react-router-dom";
 import '../style/Header.css';
-import GuestPopover from './modal/GeustPopover';
+import SearchBar from './bar/SearchBar';
 
 function Header() {
     return (
@@ -27,22 +24,7 @@ function Header() {
                     <Avatar />
                 </div>
             </div>
-
-            <div className='header__center'>
-                <ButtonGroup variant="text" ria-label="Basic button group">
-                    <Button>
-                        <div className='header__button'>
-                            <p>여행지</p>
-                            <p>여행지 검색</p>
-                        </div>
-                    </Button>
-                    <Button>가는 날</Button>
-                    <Button>오는 날</Button>
-                    <GuestPopover content='add_guest'></GuestPopover>
-                    <Button><SearchIcon /></Button>
-                </ButtonGroup>
-            </div>
-
+            <SearchBar />
         </div>
     )
 }

@@ -1,5 +1,5 @@
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import { IconButton } from "@mui/material";
 import React, { useState } from "react";
 import styled from "styled-components";
@@ -17,12 +17,12 @@ const GuestButton = ({guestType})=>{
     <GuestButtonDiv>
       <h3>{guestType}</h3>
       <PlusMinusButtonDiv>
-      <IconButton aria-label="subtract" onClick={subtractNumberOfGuest}>
-        <RemoveIcon />
+      <IconButton aria-label="subtract" onClick={subtractNumberOfGuest} disabled={numberOfGuests <= 0}>
+        <RemoveCircleOutlineIcon />
       </IconButton>
       <h3>{numberOfGuests}</h3>
       <IconButton aria-label="add" onClick={addNumberOfGuest}>
-        <AddIcon />
+        <AddCircleOutlineIcon />
       </IconButton>
       </PlusMinusButtonDiv>
     </GuestButtonDiv>
@@ -37,7 +37,11 @@ const GuestButtonDiv = styled.div`
   align-items: center;
   border-bottom: 1px solid #ebebeb;
   flex-wrap: wrap;
-  padding: 24px,4px,24px,0;
+  padding: 24px 4px 24px 0;
+
+  &:last-child {
+    border-bottom: none;
+  }
 `;
 
 const PlusMinusButtonDiv = styled.div`
