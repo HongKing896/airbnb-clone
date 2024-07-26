@@ -1,9 +1,10 @@
 import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import Popover from '@mui/material/Popover';
 import React from 'react';
-import DatePicker from './DatePiccker';
+import CountryButton from './CountryButton';
 
-function DatePopover({ content,updateReserveInformation }){
+function CountryPopover({ content,updateSearchInformation }){
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -14,8 +15,13 @@ function DatePopover({ content,updateReserveInformation }){
     setAnchorEl(null);
   };
 
+  const handleCountrySelect = (country) => {
+    updateSearchInformation('locationCountry', country);
+    handleClose();
+  };
+
   const open = Boolean(anchorEl);
-  const id = open ? 'DatePopover' : undefined;
+  const id = open ? 'CountryPopover' : undefined;
 
   return (
     <div>
@@ -29,11 +35,11 @@ function DatePopover({ content,updateReserveInformation }){
         onClose={handleClose}
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'center',
+          horizontal: 'left',
         }}
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'center',
+          horizontal: 'left',
         }}
         slotProps={{
           paper: {
@@ -47,9 +53,13 @@ function DatePopover({ content,updateReserveInformation }){
           },
         }}
       >
-      <DatePicker dateType={content} updateReserveInformation={updateReserveInformation} />
+        <ButtonGroup variant="text" orientation="vertical">
+          {['USA', 'Canada', 'Germany', 'Mexico', 'Japan', 'Italy', 'Brazil', 'UK', 'South Korea'].map(country => (
+            <CountryButton key={country} countryName={country} onSeleted={handleCountrySelect} />
+          ))}
+        </ButtonGroup>
       </Popover>
     </div>
   )
 }
-export default DatePopover
+export default CountryPopover

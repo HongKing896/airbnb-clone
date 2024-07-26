@@ -19,7 +19,7 @@ const dummyData = [
     "availableGuests": 2,
     "petFriendly": false,
     "locationCountry": "Canada",
-    "imageUrl": "https://images.pexels.com/photos/104827/cabin-log-cabin-house-home-104827.jpeg",
+    "imageUrl": "https://images.pexels.com/photos/271619/pexels-photo-271619.jpeg",
     "description": "Cozy cabin with a breathtaking view of the mountains."
   },
   {
@@ -99,7 +99,7 @@ const dummyData = [
     "availableGuests": 5,
     "petFriendly": false,
     "locationCountry": "Japan",
-    "imageUrl": "https://images.pexels.com/photos/314188/pexels-photo-314188.jpeg",
+    "imageUrl": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
     "description": "Popular resort with excellent ski facilities."
   },
   {
@@ -203,28 +203,5 @@ const dummyData = [
     "description": "Compact studio in the heart of downtown Seoul."
   }
 ];
-
-// const App = () => {
-//   const [data, setData] = useState(dummyData);
-
-//   return (
-//     <div>
-//       <h1>Test Accommodations</h1>
-//       <ul>
-//         {data.map((item, index) => (
-//           <li key={index}>
-//             <h2>{item.name}</h2>
-//             <img src={item.imageUrl} alt={item.name} style={{ width: "200px", height: "150px" }} />
-//             <p>Price: ${item.price}</p>
-//             <p>Available: {item.isAvailable ? "Yes" : "No"}</p>
-//             <p>Available Guests: {item.availableGuests}</p>
-//             <p>Pet Friendly: {item.petFriendly ? "Yes" : "No"}</p>
-//             <p>Location: {item.locationCountry}</p>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
 
 export default dummyData;

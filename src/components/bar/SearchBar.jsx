@@ -4,18 +4,22 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import DatePopover from '../modal/DatePopover/DatePopover';
-import GuestPopover from '../modal/GuestPopover/GeustPopover';
-import CountryPopover from '../modal/PlacePopover/CountryPopover';
+import DatePopover from '../modal/datePopover/DatePopover';
+import GuestPopover from '../modal/guestPopover/GeustPopover';
+import CountryPopover from '../modal/placePopover/CountryPopover';
 
-const SearchBar = ({ updateReserveInformation, updateNumberOfGuests }) => {
+const SearchBar = ({ updateSearchInformation, updateNumberOfGuests,searchInformation}) => {
   const navigate = useNavigate();
+  
+  let typeCheckIn = "checkIn";
+  let typeCheckOut = "checkOut";
+
   return(
     <StyledSearchBar>
       <ButtonGroup variant="text" ria-label="search bar button group">
-        <CountryPopover content='where' updateReserveInformation={updateReserveInformation} ></CountryPopover>
-        <DatePopover content='checkIn' updateReserveInformation={updateReserveInformation} />
-        <DatePopover content='checkOut' updateReserveInformation={updateReserveInformation} />
+        <CountryPopover content={searchInformation.locationCountry || "where"} updateSearchInformation={updateSearchInformation} ></CountryPopover>
+        <DatePopover content={searchInformation.checkIn ||'checkIn'} updateSearchInformation={updateSearchInformation} dateType={typeCheckIn} />
+        <DatePopover content={searchInformation.checkOut ||'checkOut' }updateSearchInformation={updateSearchInformation} dateType={typeCheckOut} />
         <GuestPopover content='who' updateNumberOfGuests={updateNumberOfGuests}></GuestPopover>
       <Button onClick={() => navigate('/search')}><SearchIcon /></Button>
     </ButtonGroup>

@@ -5,11 +5,11 @@ import dayjs from 'dayjs';
 import React from 'react';
 
 
-const DatePicker = ( {dateType,updateReserveInformation} ) => {
+const DatePicker = ( {dateType,updateSearchInformation} ) => {
   const [value, setValue] = React.useState(dayjs('2024-07-20'));
   const handleChange = (newValue) => {
     setValue(newValue);
-    updateReserveInformation(dateType,newValue);
+    updateSearchInformation(dateType, newValue.format('YYYY-MM-DD'));
   }
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>

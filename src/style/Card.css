@@ -6,6 +6,7 @@
   transition: transform 100ms ease-in;
   cursor: pointer;
   max-width: 400px;
+  max-height: 400px;
 }
 
 .card:hover {
